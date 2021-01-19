@@ -1,0 +1,8 @@
+{
+  "key": "PF2E.RuleElement.DamageDice",
+  "selector": "damage",
+  "diceNumber": 1,
+  "predicate": {
+    "all": ["unarmed"]
+  }
+}
