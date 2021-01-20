@@ -1,0 +1,15 @@
+{
+  "category": "precision",
+  "dieSize": "d6",
+  "key": "PF2E.RuleElement.DamageDice",
+  "predicate": { "all": ["target:flatFooted"], "any": ["finesse", "agile", "ranged", "simple-weapon"] },
+  "selector": "damage",
+  "value": {
+    "brackets": [
+      { "end": 4, "value": { "diceNumber": 1 } },
+      { "end": 10, "start": 5, "value": { "diceNumber": 2 } },
+      { "end": 16, "start": 11, "value": { "diceNumber": 3 } },
+      { "start": 17, "value": { "diceNumber": 4 } }
+    ]
+  }
+}
