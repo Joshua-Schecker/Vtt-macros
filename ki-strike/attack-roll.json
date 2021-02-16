@@ -2,8 +2,9 @@
   "key": "PF2E.RuleElement.FlatModifier",
   "selector": "attack-roll",
   "predicate": {
-    "all": ["unarmed"]
+    "all": ["ki-strike"]
   },
   "value": 1,
-  "type": "item"
+  "type": "status",
+  "label": "Ki strike"
 }

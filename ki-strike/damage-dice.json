@@ -1,0 +1,10 @@
+{
+  "key": "PF2E.RuleElement.DamageDice",
+  "selector": "damage",
+  "diceNumber": 1,
+  "dieSize": "d6",
+  "predicate": {
+    "all": ["ki-strike"]
+  },
+  "label": "Ki strike"
+}
