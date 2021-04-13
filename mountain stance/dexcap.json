@@ -1,0 +1,8 @@
+{
+  "key": "PF2E.RuleElement.DexterityModifierCap",
+  "label": "Mountain Stance",
+  "value": 0,
+  "predicate": {
+    "all": ["mountain-stance-toggle"]
+  }
+}

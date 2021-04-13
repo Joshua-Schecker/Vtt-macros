@@ -1,0 +1,10 @@
+{
+  "key": "PF2E.RuleElement.FlatModifier",
+  "label": "ageless",
+  "selector": "skill-check",
+  "type": "circumstance",
+  "value": 2,
+  "predicate": {
+    "all": ["ageless-toggle"]
+  }
+}

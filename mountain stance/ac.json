@@ -1,0 +1,11 @@
+{
+  "key": "PF2E.RuleElement.FlatModifier",
+  "label": "Mountain Stance",
+  "selector": "ac",
+  "type": "status",
+  "value": 4,
+  "predicate": {
+    "all": ["mountain-stance-toggle"]
+  },
+  "roll-options": ["ac", "all"]
+}

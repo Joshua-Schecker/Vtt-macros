@@ -1,0 +1,9 @@
+{
+  "key": "PF2E.RuleElement.FlatModifier",
+  "selector": "speed",
+  "value": -5,
+  "label": "Mountain Stance",
+  "predicate": {
+    "all": ["mountain-stance-toggle"]
+  }
+}

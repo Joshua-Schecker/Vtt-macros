@@ -23,7 +23,7 @@ new Dialog({
 
 function grapple(map) {
   let target = targets[0];
-  const dc = target.actor.data.data.saves.fortitude.totalModifier + 10;
+  const dc = target.actor.data.data.saves.reflex.totalModifier + 10;
   const roll = new Roll(`1d20 + ${actor.data.data.skills.ath.value} - ${map}`).roll();
   const difference = roll.total - dc;
   let degree = difference < 0 ? 0 : 1;
@@ -35,21 +35,26 @@ function grapple(map) {
   let content;
   switch (degree) {
     case -1:
-      content = `<h3>Grapple <span style="color: red;">❌❌CRITICAL Fail</span></h3></p>${actor.data.name} is <b>Grampendium[pf2e.conditionitems.kWc1fhmv9LBiTuei]{Grabbed} or knocked <b>@Compendium[pf2e.conditionitems.kWc1fhmv9LBiTuei]{Prone}</p>`;
+      content = `<h3>Grapple <span style="color: red;">❌❌ CRITICAL Fail</span></h3></p>${actor.data.name} is knocked&npbsp;@Compendium[pf2e.conditionitems.kWc1fhmv9LBiTuei]{Prone}</p>`;
       break;
     case 0:
-      content = '<h3>Grapple <span style="color: grey;">❌Fail</span></h3>';
+      content = '<h3>Grapple <span style="color: grey;">❌ Fail</span></h3>';
       break;
     case 1:
-      content = `<h3>Grapple <span style="color: green;">✔️Success</span></h3></p>${target.actor.data.name} is <b>@Compendium[pf2e.conditionitems.kWc1fhmv9LBiTuei]{Grabbed}</b></p>`;
+      content = `<h3>Grapple <span style="color: green;">✔️ Success</span></h3></p>${target.actor.data.name} is knocked&nbsp;@Compendium[pf2e.conditionitems.kWc1fhmv9LBiTuei]{Prone}</p>`;
       break;
     case 2:
-      content = `<h3>Grapple <span style="color: green;">✔️✔️CRITICAL Success</span></h3></p>${target.actor.data.name} is <b>$Compendium[pf2e.conditionitems.kWc1fhmv9LBiTuei]{Restrained}}</b></p>`;
+      content = `<h3>Grapple <span style="color: green;">✔️✔️ CRITICAL Success</span></h3></p>${target.actor.data.name} is knocked&nbsp;@Compendium[pf2e.conditionitems.kWc1fhmv9LBiTuei]{Prone} and takes 1d6 damage</p>`;
       break;
   }
   let chatData = {
     user: game.user._id,
     speaker: ChatMessage.getSpeaker(),
   };
+  ChatMessage.create({ ...chatData, roll, type: CHAT_MESSAGE_TYPES.ROLL }, {});
+  if (degree == 2) {
+    const damageRoll = new Roll("1d6").roll();
+    ChatMessage.create({ ...chatData, roll: damageRoll, type: CHAT_MESSAGE_TYPES.ROLL }, {});
+  }
   ChatMessage.create({ ...chatData, content }, {});
 }

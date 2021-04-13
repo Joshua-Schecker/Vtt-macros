@@ -2,7 +2,7 @@
   "key": "PF2E.RuleElement.FlatModifier",
   "selector": "attack-roll",
   "predicate": {
-    "all": ["ki-strike"]
+    "all": ["ki-strike-toggle"]
   },
   "value": 1,
   "type": "status",
