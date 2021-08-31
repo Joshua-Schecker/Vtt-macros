@@ -27,9 +27,9 @@ function grapple(map) {
   const roll = new Roll(`1d20 + ${actor.data.data.skills.ath.value} - ${map}`).roll();
   const difference = roll.total - dc;
   let degree = difference < 0 ? 0 : 1;
-  if (roll.results[0] == 20 || difference >= 10) {
+  if (roll.dice[0] == 20 || difference >= 10) {
     degree++;
-  } else if (roll.results[0] == 1 || difference <= -10) {
+  } else if (roll.dice[0] == 1 || difference <= -10) {
     degree--;
   }
   let content;
